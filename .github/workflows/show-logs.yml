@@ -12,16 +12,16 @@ jobs:
         with:
           host: capstone-project.de
           #Set App Name (replace "example" with "alpha"-"tango")
-          username: example
+          username: cgn-java-23-2-alexander
           password: ${{ secrets.SSH_PASSWORD }}
           #Set App Name (replace "example" with "alpha"-"tango")
           script: |
-            sudo docker logs example
+            sudo docker logs cgn-java-23-2-alexander
       - name: Check the deployed service URL
         uses: jtalk/url-health-check-action@v3
         with:
           #Set App Name (replace "example" with "alpha"-"tango")
-          url: http://example.capstone-project.de
+          url: http://cgn-java-23-2-alexander.capstone-project.de
           max-attempts: 3
           retry-delay: 5s
           retry-all: true

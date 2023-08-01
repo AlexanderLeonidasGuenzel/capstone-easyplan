@@ -13,7 +13,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '18.16.0'
 
       - name: Build Frontend
         working-directory: frontend
@@ -41,7 +41,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           #Set Java Version
-          java-version: '17'
+          java-version: '20'
           distribution: 'adopt'
           cache: 'maven'
 
@@ -51,7 +51,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: app.jar
-          path: backend/target/app.jar
+          path: backend/target/capstone-easyplan.jar
 
   push-to-docker-hub:
     runs-on: ubuntu-latest
@@ -68,7 +68,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           #Set dockerhub username
-          username: bartfastiel
+          username: alexanderguenzel
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build and push
@@ -76,7 +76,7 @@ jobs:
         with:
           push: true
           #Set dockerhub project (replace "bartfastiel/java-capstone-project.de-example-app")
-          tags: bartfastiel/java-capstone-project.de-example-app:latest
+          tags: alexanderguenzel/capstone-easyplan:latest
           context: .
 
   deploy:
@@ -88,23 +88,23 @@ jobs:
         with:
           host: capstone-project.de
           #Set App Name (replace "example" with your ssh user name)
-          username: example
+          username: cgn-java-23-2-alexander
           password: ${{ secrets.SSH_PASSWORD }}
           #Set App Name (replace "example" with your ssh user name)
           #Set dockerhub project (replace "bartfastiel/java-capstone-project.de-example-app")
           #Set IP (replace "10.0.1.99" with your ip address)
           script: |
-            sudo docker stop example
-            sudo docker rm example
-            sudo docker run --pull=always --name example --network capstones --ip 10.0.1.99 --restart always --detach --env MONGO_DB_URI=${{ secrets.MONGO_DB_URI }} bartfastiel/java-capstone-project.de-example-app:latest
+            sudo docker stop cgn-java-23-2-alexander
+            sudo docker rm cgn-java-23-2-alexander
+            sudo docker run --pull=always --name cgn-java-23-2-alexander --network capstones --ip 10.0.5.1 --restart always --detach --env MONGO_DB_URI=${{ secrets.MONGO_DB_URI }} alexanderguenzel/capstone-easyplan:latest
             sleep 15s
-            sudo docker logs example
+            sudo docker logs cgn-java-23-2-alexander
 
       - name: Check the deployed service URL
         uses: jtalk/url-health-check-action@v3
         with:
           #Set App Name (replace "example" with your ssh user name)
-          url: http://example.capstone-project.de
+          url: http://cgn-java-23-2-alexander.capstone-project.de
           max-attempts: 3
           retry-delay: 5s
           retry-all: true
