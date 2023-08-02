@@ -9,6 +9,7 @@ function App() {
       <p className="">
         There are no existing plans!
       </p>
+        <button>new plan</button>
     </>
   )
 }
