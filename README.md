@@ -12,3 +12,5 @@
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=alexanderleonidasguenzel_easyplan-frontend&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=alexanderleonidasguenzel_easyplan-frontend)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=alexanderleonidasguenzel_easyplan-frontend&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=alexanderleonidasguenzel_easyplan-frontend)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=alexanderleonidasguenzel_easyplan-frontend&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=alexanderleonidasguenzel_easyplan-frontend)
+
+lol
