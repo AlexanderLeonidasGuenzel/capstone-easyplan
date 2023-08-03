@@ -16,7 +16,7 @@ public class PlanController {
         }
 
         @PostMapping
-        public Plan addPlan(@RequestBody Plan plan) {
+        public Plan addPlan(@RequestBody PlanData plan) {
             return planService.addPlan(plan);
         }
 }

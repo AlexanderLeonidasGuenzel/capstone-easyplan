@@ -11,8 +11,9 @@ public class PlanService {
     private final PlanRepository planRepository;
     private final IDGenerator idGenerator;
 
-    public Plan addPlan(Plan plan) {
-        plan.setId(idGenerator.generateId());
+    public Plan addPlan(PlanData planData) {
+        String id = idGenerator.generateId();
+        Plan plan = new Plan(id, planData.getName());
         return planRepository.save(plan);
     }
 
