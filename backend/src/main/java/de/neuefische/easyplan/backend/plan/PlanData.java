@@ -9,6 +9,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PlanData {
 
-    private String id;
     private String name;
 }
