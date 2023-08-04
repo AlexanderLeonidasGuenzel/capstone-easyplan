@@ -9,6 +9,10 @@ body {
   background-color: aliceblue;
 }
 
+button {
+  background-color: #213547;
+  color: darkred;
+}
 .form-box{
   display: none;
 }
