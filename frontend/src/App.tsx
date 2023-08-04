@@ -31,10 +31,10 @@ function App() {
       <p className="">
         There are no existing plans!
       </p>
-        <button onClick={toggleShowForm}>new plan</button>
+        <button id="btn-newPlan" onClick={toggleShowForm}>new plan</button>
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
             <form onSubmit={handleSubmit}>
-                <label>plan </label>
+                <label>name of plan </label>
                 <input type="text" placeholder={"e.g. week-1"} value={planInput} onChange={handleChange}/>
                 <button>add</button>
             </form>
