@@ -39,7 +39,6 @@ function App() {
                 <button>add</button>
             </form>
         </div>
-
     </>
   )
 }
