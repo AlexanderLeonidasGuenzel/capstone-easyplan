@@ -4,6 +4,7 @@ import axios from "axios";
 
 function App() {
     const[planInput, setPlanInput] = useState("");
+    const[isHidden, setIsHidden] = useState(true);
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
         setPlanInput(event.target.value);
     }
@@ -19,13 +20,7 @@ function App() {
     }
 
     function toggleShowForm() {
-        const formBox = document.getElementById("form-box")!;
-        const display = formBox.style.display;
-        if(display === "none") {
-            formBox.style.display = "block";
-        }else {
-            formBox.style.display = "none";
-        }
+        setIsHidden(!isHidden);
     }
 
   return (
@@ -36,7 +31,7 @@ function App() {
         There are no existing plans!
       </p>
         <button onClick={toggleShowForm}>new plan</button>
-        <div className="form-box">
+        <div style={isHidden ? {display:"none"} : {display:"block"}}>
             <form onSubmit={handleSubmit}>
                 <label>name </label>
                 <input type="text" placeholder={"week-1"} value={planInput} onChange={handleChange}/>
