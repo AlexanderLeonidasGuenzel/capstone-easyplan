@@ -18,6 +18,16 @@ function App() {
         setPlanInput("");
     }
 
+    function toggleShowForm() {
+        const formBox = document.getElementById("form-box")!;
+        const display = formBox.style.display;
+        if(display === "none") {
+            formBox.style.display = "block";
+        }else {
+            formBox.style.display = "none";
+        }
+    }
+
   return (
     <>
       <h1>Welcome</h1>
@@ -25,12 +35,15 @@ function App() {
       <p className="">
         There are no existing plans!
       </p>
-        <button>new plan</button>
-        <form onSubmit={handleSubmit}>
-            <label>name </label>
-            <input type="text" placeholder={"week-1"} value={planInput} onChange={handleChange}/>
-            <button>add</button>
-        </form>
+        <button onClick={toggleShowForm}>new plan</button>
+        <div className="form-box">
+            <form onSubmit={handleSubmit}>
+                <label>name </label>
+                <input type="text" placeholder={"week-1"} value={planInput} onChange={handleChange}/>
+                <button>add</button>
+            </form>
+        </div>
+
     </>
   )
 }
