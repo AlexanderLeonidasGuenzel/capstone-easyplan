@@ -6,6 +6,8 @@ import './index.css'
 function App() {
     const[planInput, setPlanInput] = useState("");
     const[isHidden, setIsHidden] = useState(true);
+    const[text, setText] = useState("There are no existing plans!");
+
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
         setPlanInput(event.target.value);
     }
@@ -20,6 +22,7 @@ function App() {
                 });
             setIsHidden(true);
             alert("plan successfully added");
+            setText("");
         }else {alert("please enter a name for the plan")}
         setPlanInput("");
 
@@ -34,7 +37,7 @@ function App() {
       <h1>Welcome</h1>
       <h2>working plans</h2>
       <p className="">
-        There are no existing plans!
+          {text}
       </p>
         <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>new plan </button>
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
