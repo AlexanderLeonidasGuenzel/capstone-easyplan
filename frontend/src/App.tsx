@@ -2,11 +2,14 @@ import './App.css'
 import {ChangeEvent, useState} from "react";
 import axios from "axios";
 import './index.css'
+import PlanCardProps from "./PlanCard.tsx";
 
 function App() {
     const[planInput, setPlanInput] = useState("");
     const[isHidden, setIsHidden] = useState(true);
     const[text, setText] = useState("There are no existing plans!");
+    const[planID, setPlanID] = useState(0);
+    const[planCard, setPlanCard] = useState([PlanCardProps]);
 
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
         setPlanInput(event.target.value);
@@ -23,6 +26,7 @@ function App() {
             setIsHidden(true);
             alert("plan successfully added");
             setText("");
+            setPlanID(planID + 1)
         }else {
             alert("please enter a name for the plan")
         }
@@ -40,6 +44,7 @@ function App() {
       <p className="">
           {text}
       </p>
+        <PlanCard id={planID} name={planInput}></PlanCard>
         <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>new plan </button>
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
             <form onSubmit={handleSubmit}>
