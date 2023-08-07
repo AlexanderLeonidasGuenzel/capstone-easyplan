@@ -26,7 +26,7 @@ body {
 
 #form-box button{
   margin-top: 20px;
-  width: 45%;
+  width: 100%;
   padding: 10px;
   border-radius: 8px;
   border: none;
@@ -36,12 +36,6 @@ body {
   cursor: pointer;
 }
 
-#button-box{
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
 #button-back{
   background-color: #b40b0b;
 }
@@ -49,8 +43,6 @@ body {
 #button-add{
   background-color: #04b94c;
 }
-
-
 
 #form-box label{
     text-align: left;

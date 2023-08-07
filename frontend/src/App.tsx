@@ -11,17 +11,25 @@ function App() {
     }
     function handleSubmit(event: ChangeEvent<HTMLFormElement>)  {
         event.preventDefault();
-        axios.post('/api/plan', {
-            name: planInput
-        })
-            .catch(function (error) {
-                console.log(error);
-            });
+        if(planInput !== ""){
+            axios.post('/api/plan', {
+                name: planInput
+            })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }else {alert("please enter a name for the plan")}
         setPlanInput("");
     }
 
-    function toggleShowForm() {
-        setIsHidden(!isHidden);
+    function showForm() {
+        const isHidden = false;
+        setIsHidden(isHidden);
+    }
+
+    function hideForm() {
+        const isHidden = true;
+        setIsHidden(isHidden);
     }
 
   return (
@@ -31,22 +39,17 @@ function App() {
       <p className="">
         There are no existing plans!
       </p>
-        <button id="btn-newPlan" onClick={toggleShowForm}>new plan</button>
+        <button id="btn-newPlan" onClick={showForm}>new plan</button>
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
             <form onSubmit={handleSubmit}>
                 <label>name of plan </label>
                 <input type="text" placeholder={"e.g. week-1"} value={planInput} onChange={handleChange}/>
-                <div id="button-box">
-                    <button id="button-back">back</button>
-                    <button id="button-add">add</button>
-                </div>
+                <button id="button-add">add</button>
             </form>
+            <button id="button-back" onClick={hideForm}>back</button>
         </div>
     </>
   )
 }
-
-
-
 
 export default App
