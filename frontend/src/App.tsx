@@ -18,8 +18,11 @@ function App() {
                 .catch(function (error) {
                     console.log(error);
                 });
+            setIsHidden(true);
+            alert("plan successfully added");
         }else {alert("please enter a name for the plan")}
         setPlanInput("");
+
     }
 
     function toggleHidden() {
