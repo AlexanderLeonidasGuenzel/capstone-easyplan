@@ -23,9 +23,10 @@ function App() {
             setIsHidden(true);
             alert("plan successfully added");
             setText("");
-        }else {alert("please enter a name for the plan")}
+        }else {
+            alert("please enter a name for the plan")
+        }
         setPlanInput("");
-
     }
 
     function toggleHidden() {
