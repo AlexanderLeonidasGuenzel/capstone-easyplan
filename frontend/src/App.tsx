@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import {ChangeEvent, useState} from "react";
+import axios from "axios";
+import './index.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+    const[planInput, setPlanInput] = useState("");
+    const[isHidden, setIsHidden] = useState(true);
+    function handleChange(event: ChangeEvent<HTMLInputElement>) {
+        setPlanInput(event.target.value);
+    }
+    function handleSubmit(event: ChangeEvent<HTMLFormElement>)  {
+        event.preventDefault();
+        axios.post('/api/plan', {
+            name: planInput
+        })
+            .catch(function (error) {
+                console.log(error);
+            });
+        setPlanInput("");
+    }
+
+    function toggleShowForm() {
+        setIsHidden(!isHidden);
+    }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+      <h1>Welcome</h1>
+      <h2>working plans</h2>
+      <p className="">
+        There are no existing plans!
       </p>
+        <button id="btn-newPlan" onClick={toggleShowForm}>new plan</button>
+        <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
+            <form onSubmit={handleSubmit}>
+                <label>name of plan </label>
+                <input type="text" placeholder={"e.g. week-1"} value={planInput} onChange={handleChange}/>
+                <button>add</button>
+            </form>
+        </div>
     </>
   )
 }
+
+
+
 
 export default App
