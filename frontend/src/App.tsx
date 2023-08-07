@@ -36,7 +36,10 @@ function App() {
             <form onSubmit={handleSubmit}>
                 <label>name of plan </label>
                 <input type="text" placeholder={"e.g. week-1"} value={planInput} onChange={handleChange}/>
-                <button>add</button>
+                <div id="button-box">
+                    <button id="button-back">back</button>
+                    <button id="button-add">add</button>
+                </div>
             </form>
         </div>
     </>

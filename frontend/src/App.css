@@ -12,7 +12,6 @@ body {
 #form-box{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   margin: 20px 0 auto;
   padding: 2rem;
@@ -27,16 +26,31 @@ body {
 
 #form-box button{
   margin-top: 20px;
-  width: 100%;
+  width: 45%;
   padding: 10px;
   border-radius: 8px;
   border: none;
-  background-color: #325780;
   color: #fff;
   font-weight: bold;
   font-size: 16px;
   cursor: pointer;
 }
+
+#button-box{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#button-back{
+  background-color: #b40b0b;
+}
+
+#button-add{
+  background-color: #04b94c;
+}
+
+
 
 #form-box label{
     text-align: left;
