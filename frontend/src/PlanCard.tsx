@@ -1,7 +1,7 @@
 import  './PlanCard.css'
 
 export type PlanCardProps = {
-    id: number,
+    id: string,
     name: string,
 
 }

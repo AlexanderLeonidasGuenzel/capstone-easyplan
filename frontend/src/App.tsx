@@ -3,6 +3,7 @@ import {ChangeEvent, useState} from "react";
 import axios from "axios";
 import './index.css'
 import './PlanListContainer.tsx'
+import PlanListContainer from "./PlanListContainer.tsx";
 
 function App() {
     const[planInput, setPlanInput] = useState("");
@@ -39,9 +40,9 @@ function App() {
     <>
       <h1>Welcome</h1>
       <h2>working plans</h2>
-      <p className="">
-          {text}
-      </p>
+      <div className="">
+          {text || <PlanListContainer/>}
+      </div>
 
         <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>new plan </button>
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
