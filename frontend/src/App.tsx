@@ -2,7 +2,6 @@ import './App.css'
 import {ChangeEvent, useEffect, useState} from "react";
 import axios from "axios";
 import './index.css'
-import './PlanListContainer.tsx'
 import PlanListContainer from "./PlanListContainer.tsx";
 import {Plan} from "./Plan.ts";
 
@@ -21,7 +20,8 @@ function App() {
         if(planInput !== ""){
             axios.post('/api/plan', {
                 name: planInput
-            })
+            }).then(function (response) {
+                setPlanList([...planList, response.data])})
                 .catch(function (error) {
                     console.log(error);
                 });
