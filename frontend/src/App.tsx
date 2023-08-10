@@ -35,7 +35,7 @@ function App() {
     }
 
     function getPlans() {
-        axios.get('/api/plans')
+        axios.get('/api/plan')
             .then(function (response) {
                 setPlanList(response.data);
             })

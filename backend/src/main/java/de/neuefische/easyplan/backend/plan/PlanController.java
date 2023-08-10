@@ -1,22 +1,29 @@
 package de.neuefische.easyplan.backend.plan;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/plan")
 public class PlanController {
 
-        private final PlanService planService;
+    private final PlanService planService;
 
-        public PlanController(PlanService planService) {
-            this.planService = planService;
-        }
+    @PostMapping
+    public Plan addPlan(@RequestBody PlanData plan) {
+        return planService.addPlan(plan);
+    }
 
-        @PostMapping
-        public Plan addPlan(@RequestBody PlanData plan) {
-            return planService.addPlan(plan);
-        }
+    @GetMapping("{id}")
+    public Plan getPlan(@PathVariable String id) {
+        return planService.getPlan(id);
+    }
+
+    @GetMapping
+    public List<Plan> getAllPlans() {
+        return planService.getAllPlans();
+    }
 }
