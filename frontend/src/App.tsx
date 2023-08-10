@@ -1,13 +1,15 @@
 import './App.css'
-import {ChangeEvent, useState} from "react";
+import {ChangeEvent, useEffect, useState} from "react";
 import axios from "axios";
 import './index.css'
 import './PlanListContainer.tsx'
 import PlanListContainer from "./PlanListContainer.tsx";
+import {Plan} from "./Plan.ts";
 
 function App() {
     const[planInput, setPlanInput] = useState("");
     const[isHidden, setIsHidden] = useState(true);
+    const[planList, setPlanList] = useState<Plan[]>([]);
     const[text, setText] = useState("There are no existing plans!");
 
 
@@ -32,6 +34,21 @@ function App() {
         setPlanInput("");
     }
 
+    function getPlans() {
+        axios.get('/api/plans')
+            .then(function (response) {
+                setPlanList(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    useEffect(() => {
+        getPlans()
+    }, []);
+
+
     function toggleHidden() {
         setIsHidden(!isHidden);
     }
@@ -41,9 +58,9 @@ function App() {
       <h1>Welcome</h1>
       <h2>working plans</h2>
       <div className="">
-          {text || <PlanListContainer/>}
+          {text}
       </div>
-
+        <PlanListContainer plans={planList}/>
         <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>new plan </button>
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
             <form onSubmit={handleSubmit}>
