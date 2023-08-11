@@ -8,6 +8,8 @@ import org.springframework.http.MediaType;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -20,7 +22,9 @@ class PlanServiceIntegrationTest {
     @Autowired
     private MockMvc mockMvc;
 
+
     @Test
+    @DirtiesContext
     void testAddPlan() throws Exception {
         String requestBody = """
                 {"id":"1", "name":"week-1"}
@@ -31,14 +35,15 @@ class PlanServiceIntegrationTest {
         resultActions.andExpect(status().isOk());
         resultActions.andExpect(jsonPath("$.name").value("week-1"));
     }
-
     @Test
-    void test_getPlan() throws Exception {
+    @DirtiesContext
+    void testGetPlan() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/plan"))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json("""
                         []
                         """));
     }
+
 
 }
