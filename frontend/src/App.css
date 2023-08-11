@@ -79,3 +79,9 @@ body {
   cursor: pointer;
 }
 
+#text-no-plans{
+  margin: 20px 0;
+  font-size: 16px;
+  color: #325780;
+}
+

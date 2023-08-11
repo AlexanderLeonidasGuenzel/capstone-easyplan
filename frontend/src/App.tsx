@@ -60,10 +60,10 @@ function App() {
     <>
       <h1>Welcome</h1>
       <h2>working plans</h2>
-      <div className="">
+      <div id="text-no-plans">
           {text}
       </div>
-        {/*<PlanListContainer plans={planList}/>*/}
+        <PlanListContainer plans={planList}/>
         <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>new plan </button>
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
             <form onSubmit={handleSubmit}>
