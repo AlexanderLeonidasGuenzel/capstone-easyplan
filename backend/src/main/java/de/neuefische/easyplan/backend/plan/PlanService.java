@@ -26,4 +26,10 @@ public class PlanService {
     public Plan getPlanById(String id) {
         return planRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Plan with id " + id + " not found"));
     }
+
+    public void editPlan(String id, PlanData planData) {
+        Plan plan = getPlanById(id);
+        plan.setName(planData.getName());
+        planRepository.save(plan);
+    }
 }

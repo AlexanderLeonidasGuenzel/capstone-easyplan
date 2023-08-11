@@ -25,4 +25,9 @@ public class PlanController {
     public Plan getPlanById(@PathVariable String id) {
         return planService.getPlanById(id);
     }
+
+    @PutMapping("{id}")
+    public void editPlan(@PathVariable String id, @RequestBody PlanData planData) {
+        planService.editPlan(id, planData);
+    }
 }
