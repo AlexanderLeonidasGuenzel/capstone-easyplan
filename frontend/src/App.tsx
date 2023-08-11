@@ -10,11 +10,16 @@ function App() {
     const[isHidden, setIsHidden] = useState(true);
     const[planList, setPlanList] = useState<Plan[]>([]);
     const[text, setText] = useState("");
+    const[planSearch, setPlanSearch] = useState("");
 
-
-    function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
         setPlanInput(event.target.value);
     }
+
+    function handleChangeSearch(event: ChangeEvent<HTMLInputElement>) {
+        setPlanSearch(event.target.value);
+    }
+
     function handleSubmit(event: ChangeEvent<HTMLFormElement>)  {
         event.preventDefault();
         if(planInput !== ""){
@@ -32,6 +37,11 @@ function App() {
             alert("please enter a name for the plan")
         }
         setPlanInput("");
+    }
+
+    function handleSearch(event: ChangeEvent<HTMLFormElement>)  {
+        event.preventDefault();
+        getPlan(planSearch);
     }
 
     function getPlans() {
@@ -58,12 +68,6 @@ function App() {
             });
     }
 
-    function handleSearch(event: ChangeEvent<HTMLFormElement>)  {
-        event.preventDefault();
-        getPlan("2258e650-cb1c-462f-b2a7-fd97090ea8ba");
-
-    }
-
     useEffect(() => {
         getPlans()
     }, []);
@@ -83,6 +87,7 @@ function App() {
         <PlanListContainer plans={planList}/>
         <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>new plan </button>
         <form onSubmit={handleSearch}>
+            <input type="text" value={planSearch} onChange={handleChangeSearch}/><br></br>
             <button id="find-plan">find plan</button>
         </form>
 
@@ -90,7 +95,7 @@ function App() {
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
             <form onSubmit={handleSubmit}>
                 <label>name of plan </label>
-                <input type="text" placeholder={"e.g. week-1"} value={planInput} onChange={handleChange}/>
+                <input type="text" placeholder={"e.g. week-1"} value={planInput} onChange={handleInputChange}/>
                 <button id="button-add">add</button>
             </form>
             <button id="button-back" onClick={toggleHidden}>back</button>
