@@ -37,6 +37,19 @@ function App() {
     function getPlans() {
         axios.get('/api/plan')
             .then(function (response) {
+                setPlanList(response.data)
+                if(response.data.length === 0){
+                    setText("There are no existing plans!")
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    function getPlan(id: string) {
+        axios.get('/api/plan/' + id)
+            .then(function (response) {
                 console.log(response.data.name)})
             .catch(function (error) {
                 console.log(error);
