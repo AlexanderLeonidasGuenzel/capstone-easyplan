@@ -58,6 +58,12 @@ function App() {
             });
     }
 
+    function handleSearch(event: ChangeEvent<HTMLFormElement>)  {
+        event.preventDefault();
+        getPlan("2258e650-cb1c-462f-b2a7-fd97090ea8ba");
+
+    }
+
     useEffect(() => {
         getPlans()
     }, []);
@@ -76,7 +82,10 @@ function App() {
       </div>
         <PlanListContainer plans={planList}/>
         <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>new plan </button>
-        <button id="find-plan" onClick={() => getPlan("07fd1174-c350-4a8a-b813-0d1e5c5aa682")}>find plan</button>
+        <form onSubmit={handleSearch}>
+            <button id="find-plan">find plan</button>
+        </form>
+
         <p></p>
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
             <form onSubmit={handleSubmit}>
