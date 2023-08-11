@@ -22,4 +22,8 @@ public class PlanService {
     public List<Plan> getAllPlans() {
         return planRepository.findAll();
     }
+
+    public Plan getPlanById(String id) {
+        return planRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Plan with id " + id + " not found"));
+    }
 }
