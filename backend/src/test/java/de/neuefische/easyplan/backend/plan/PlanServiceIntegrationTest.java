@@ -10,6 +10,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -28,6 +30,15 @@ class PlanServiceIntegrationTest {
                 .content(requestBody));
         resultActions.andExpect(status().isOk());
         resultActions.andExpect(jsonPath("$.name").value("week-1"));
+    }
+
+    @Test
+    void test_getPlan() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/plan"))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().json("""
+                        []
+                        """));
     }
 
 }
