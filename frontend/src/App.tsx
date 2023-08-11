@@ -9,7 +9,7 @@ function App() {
     const[planInput, setPlanInput] = useState("");
     const[isHidden, setIsHidden] = useState(true);
     const[planList, setPlanList] = useState<Plan[]>([]);
-    const[text, setText] = useState("There are no existing plans!");
+    const[text, setText] = useState("");
 
 
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
@@ -37,7 +37,10 @@ function App() {
     function getPlans() {
         axios.get('/api/plan')
             .then(function (response) {
-                setPlanList(response.data);
+                setPlanList(response.data)
+                if(response.data.length === 0){
+                    setText("There are no existing plans!")
+                }
             })
             .catch(function (error) {
                 console.log(error);
@@ -60,7 +63,7 @@ function App() {
       <div className="">
           {text}
       </div>
-        <PlanListContainer plans={planList}/>
+        {/*<PlanListContainer plans={planList}/>*/}
         <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>new plan </button>
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
             <form onSubmit={handleSubmit}>
