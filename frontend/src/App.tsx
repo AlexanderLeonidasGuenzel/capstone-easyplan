@@ -50,9 +50,11 @@ function App() {
     function getPlan(id: string) {
         axios.get('/api/plan/' + id)
             .then(function (response) {
-                console.log(response.data.name)})
-            .catch(function (error) {
-                console.log(error);
+                if(response.status === 200){
+                console.log(response.data.name)}
+            })
+            .catch(function () {
+                console.log("plan not found");
             });
     }
 
