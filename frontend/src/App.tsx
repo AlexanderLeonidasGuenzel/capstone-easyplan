@@ -37,11 +37,7 @@ function App() {
     function getPlans() {
         axios.get('/api/plan')
             .then(function (response) {
-                setPlanList(response.data)
-                if(response.data.length === 0){
-                    setText("There are no existing plans!")
-                }
-            })
+                console.log(response.data.name)})
             .catch(function (error) {
                 console.log(error);
             });
@@ -65,6 +61,8 @@ function App() {
       </div>
         <PlanListContainer plans={planList}/>
         <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>new plan </button>
+        <button id="find-plan" onClick={() => getPlan("07fd1174-c350-4a8a-b813-0d1e5c5aa682")}>find plan</button>
+        <p></p>
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
             <form onSubmit={handleSubmit}>
                 <label>name of plan </label>

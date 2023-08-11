@@ -21,4 +21,3 @@ export default function PlanListContainer(props: PlanListProps) {
         </div>
     )
 }
-// <PlanCard key={plan.id} id={plan.id} name={plan.name}/>
