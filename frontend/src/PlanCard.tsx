@@ -8,6 +8,7 @@ export default function PlanCard(props: PlanCardProps) {
     return (
         <div className="card">
             <h3>{props.name}</h3>
+            <button>edit</button>
         </div>
     )
 }
