@@ -19,10 +19,6 @@ public class PlanService {
         return planRepository.save(plan);
     }
 
-    public Plan getPlan(String id) {
-        return planRepository.findById(id).orElseThrow();
-    }
-
     public List<Plan> getAllPlans() {
         return planRepository.findAll();
     }

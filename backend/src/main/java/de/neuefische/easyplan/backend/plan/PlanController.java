@@ -16,11 +16,6 @@ public class PlanController {
         return planService.addPlan(plan);
     }
 
-    @GetMapping("{id}")
-    public Plan getPlan(@PathVariable String id) {
-        return planService.getPlan(id);
-    }
-
     @GetMapping
     public List<Plan> getAllPlans() {
         return planService.getAllPlans();
