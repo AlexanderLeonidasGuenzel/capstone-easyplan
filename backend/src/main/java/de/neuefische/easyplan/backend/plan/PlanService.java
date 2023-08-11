@@ -4,6 +4,8 @@ import de.neuefische.easyplan.backend.utils.IDGenerator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class PlanService {
@@ -17,4 +19,7 @@ public class PlanService {
         return planRepository.save(plan);
     }
 
+    public List<Plan> getAllPlans() {
+        return planRepository.findAll();
+    }
 }

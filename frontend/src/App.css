@@ -6,13 +6,12 @@
 }
 
 body {
-  background-color: aliceblue;
+  background-color: #d8ebfd;
 }
 
 #form-box{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   margin: 20px 0 auto;
   padding: 2rem;
@@ -31,11 +30,18 @@ body {
   padding: 10px;
   border-radius: 8px;
   border: none;
-  background-color: #325780;
   color: #fff;
   font-weight: bold;
   font-size: 16px;
   cursor: pointer;
+}
+
+#button-back{
+  background-color: #f66d41;
+}
+
+#button-add{
+  background-color: #04b989;
 }
 
 #form-box label{
@@ -61,7 +67,7 @@ body {
 
 #btn-newPlan{
   margin-top: 20px;
-  width: 100px;
+  width: 100%;
   padding: 10px;
   border-radius: 10px;
   border: none;

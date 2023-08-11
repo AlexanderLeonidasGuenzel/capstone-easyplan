@@ -1,26 +1,55 @@
 import './App.css'
-import {ChangeEvent, useState} from "react";
+import {ChangeEvent, useEffect, useState} from "react";
 import axios from "axios";
 import './index.css'
+import PlanListContainer from "./PlanListContainer.tsx";
+import {Plan} from "./Plan.ts";
 
 function App() {
     const[planInput, setPlanInput] = useState("");
     const[isHidden, setIsHidden] = useState(true);
+    const[planList, setPlanList] = useState<Plan[]>([]);
+    const[text, setText] = useState("There are no existing plans!");
+
+
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
         setPlanInput(event.target.value);
     }
     function handleSubmit(event: ChangeEvent<HTMLFormElement>)  {
         event.preventDefault();
-        axios.post('/api/plan', {
-            name: planInput
-        })
-            .catch(function (error) {
-                console.log(error);
-            });
+        if(planInput !== ""){
+            axios.post('/api/plan', {
+                name: planInput
+            }).then(function (response) {
+                setPlanList([...planList, response.data])})
+                .catch(function (error) {
+                    console.log(error);
+                });
+            setIsHidden(true);
+            alert("plan successfully added");
+            setText("");
+        }else {
+            alert("please enter a name for the plan")
+        }
         setPlanInput("");
     }
 
-    function toggleShowForm() {
+    function getPlans() {
+        axios.get('/api/plan')
+            .then(function (response) {
+                setPlanList(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    useEffect(() => {
+        getPlans()
+    }, []);
+
+
+    function toggleHidden() {
         setIsHidden(!isHidden);
     }
 
@@ -28,22 +57,21 @@ function App() {
     <>
       <h1>Welcome</h1>
       <h2>working plans</h2>
-      <p className="">
-        There are no existing plans!
-      </p>
-        <button id="btn-newPlan" onClick={toggleShowForm}>new plan</button>
+      <div className="">
+          {text}
+      </div>
+        <PlanListContainer plans={planList}/>
+        <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>new plan </button>
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
             <form onSubmit={handleSubmit}>
                 <label>name of plan </label>
                 <input type="text" placeholder={"e.g. week-1"} value={planInput} onChange={handleChange}/>
-                <button>add</button>
+                <button id="button-add">add</button>
             </form>
+            <button id="button-back" onClick={toggleHidden}>back</button>
         </div>
     </>
   )
 }
-
-
-
 
 export default App
