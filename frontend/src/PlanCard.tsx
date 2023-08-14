@@ -1,36 +1,19 @@
 import  './PlanCard.css'
 import {ChangeEvent, Fragment, useState} from "react";
-import axios from "axios";
 
 export type PlanCardProps = {
     id: string,
     name: string,
+    saveName: (id: string, nameInput: string, setNameInput: (input: string) => void, setPTag: (value: boolean) => void) => void
 }
 
 export default function PlanCard(props: PlanCardProps) {
 
     const [isPTag, setPTag] = useState(true);
-    const[nameInput, setNameInput] = useState("");
+    const [nameInput, setNameInput] = useState("");
 
     function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
         setNameInput(event.target.value);
-    }
-
-    function saveName() {
-        if(nameInput !== ""){
-        axios.put('/api/plan/' + props.id, {
-            name: nameInput
-        })
-            .then(function (response) {
-                console.log(response.data.name)
-            })
-            .catch(function () {
-                console.log("plan not found");
-            });
-        }else {
-            alert("please enter a name for the plan")
-        } setNameInput("");
-        setPTag(true);
     }
 
     return (
@@ -48,7 +31,7 @@ export default function PlanCard(props: PlanCardProps) {
                     (
                         <div>
                         <button id="btn-back" onClick={() => setPTag(true)}>back</button>
-                        <button id="btn-save" onClick={saveName}>save</button>
+                        <button id="btn-save" onClick={() => props.saveName(props.id, nameInput, setNameInput, setPTag)}>save</button>
                         </div>
                     )
                 }
