@@ -9,7 +9,7 @@ export default function PlanCard(props: PlanCardProps) {
     return (
         <div className="card">
             <p>{props.name}</p>
-            <p>{props.id}</p>
+            <button id="btn-edit">edit</button>
         </div>
     )
 }
