@@ -17,6 +17,7 @@ export default function PlanCard(props: PlanCardProps) {
     }
 
     function saveName() {
+        if(nameInput !== ""){
         axios.put('/api/plan/' + props.id, {
             name: nameInput
         })
@@ -26,6 +27,10 @@ export default function PlanCard(props: PlanCardProps) {
             .catch(function () {
                 console.log("plan not found");
             });
+        }else {
+            alert("please enter a name for the plan")
+        } setNameInput("");
+        setPTag(true);
     }
 
     return (
