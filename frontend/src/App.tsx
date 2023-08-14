@@ -68,15 +68,15 @@ function App() {
             });
     }
 
-    function saveName(id: string, nameInput: string, setNameInput: (input: string) => void, setPTag: (value: boolean) => void) {
+    function editName(id: string, nameInput: string, setNameInput: (input: string) => void, setPTag: (value: boolean) => void) {
         if (nameInput !== "") {
             axios.put('/api/plan/' + id, {
                 name: nameInput
             })
-                .then(function (response) {
-                    console.log(response.data.name);
+                .then(() => {
                     setNameInput("");
                     setPTag(true);
+                    getPlans();
                 })
                 .catch(function () {
                     console.log("plan not found");
@@ -103,7 +103,7 @@ function App() {
       <div id="text-no-plans">
           {text}
       </div>
-        <PlanListContainer plans={planList} saveName={saveName}/>
+        <PlanListContainer plans={planList} editName={editName}/>
         <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>new plan </button>
         <form onSubmit={handleSearch}>
             <input type="text" value={planSearch} onChange={handleChangeSearch}/><br></br>

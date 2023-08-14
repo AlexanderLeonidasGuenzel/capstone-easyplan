@@ -4,7 +4,7 @@ import {ChangeEvent, Fragment, useState} from "react";
 export type PlanCardProps = {
     id: string,
     name: string,
-    saveName: (id: string, nameInput: string, setNameInput: (input: string) => void, setPTag: (value: boolean) => void) => void
+    editName: (id: string, nameInput: string, setNameInput: (input: string) => void, setPTag: (value: boolean) => void) => void
 }
 
 export default function PlanCard(props: PlanCardProps) {
@@ -14,6 +14,15 @@ export default function PlanCard(props: PlanCardProps) {
 
     function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
         setNameInput(event.target.value);
+    }
+
+    function handleBack() {
+        setPTag(true);
+        setNameInput("")
+    }
+
+    function handleSave() {
+        props.editName(props.id, nameInput, setNameInput, setPTag);
     }
 
     return (
@@ -30,8 +39,8 @@ export default function PlanCard(props: PlanCardProps) {
                     :
                     (
                         <div>
-                        <button id="btn-back" onClick={() => setPTag(true)}>back</button>
-                        <button id="btn-save" onClick={() => props.saveName(props.id, nameInput, setNameInput, setPTag)}>save</button>
+                        <button id="btn-back" onClick={handleBack}>back</button>
+                        <button id="btn-save" onClick={handleSave}>save</button>
                         </div>
                     )
                 }
