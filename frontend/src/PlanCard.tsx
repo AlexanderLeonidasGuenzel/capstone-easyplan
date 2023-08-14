@@ -1,4 +1,5 @@
 import  './PlanCard.css'
+import {Fragment, useState} from "react";
 
 export type PlanCardProps = {
     id: string,
@@ -6,10 +7,23 @@ export type PlanCardProps = {
 }
 
 export default function PlanCard(props: PlanCardProps) {
+
+    const [isPTag, setPTag] = useState(true);
+
     return (
         <div className="card">
-            <p>{props.name}</p>
-            <button id="btn-edit">edit</button>
+            <Fragment>
+                {isPTag
+                    ? (<p>{props.name}</p>)
+                    : (<input autoFocus onClick={() => setPTag(true)} type="text"/>)}
+            </Fragment>
+            <Fragment>
+                {isPTag
+                    ? (<button id="btn-edit" onClick={() => setPTag(false)}>edit</button>)
+                    : (<div><button id="btn-back">back</button><button id="btn-save">save</button></div>)}
+
+            </Fragment>
+
         </div>
     )
 }

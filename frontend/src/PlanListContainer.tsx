@@ -5,6 +5,7 @@ import {Plan} from "./Plan.ts";
 
 type PlanListProps = {
     plans: Plan[];
+
 }
 
 
