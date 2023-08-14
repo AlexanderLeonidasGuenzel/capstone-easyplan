@@ -15,12 +15,12 @@ export default function PlanCard(props: PlanCardProps) {
             <Fragment>
                 {isPTag
                     ? (<p>{props.name}</p>)
-                    : (<input autoFocus onClick={() => setPTag(true)} type="text"/>)}
+                    : (<input type="text"/>)}
             </Fragment>
             <Fragment>
                 {isPTag
                     ? (<button id="btn-edit" onClick={() => setPTag(false)}>edit</button>)
-                    : (<div><button id="btn-back">back</button><button id="btn-save">save</button></div>)}
+                    : (<div><button id="btn-back" onClick={() => setPTag(true)}>back</button><button id="btn-save">save</button></div>)}
 
             </Fragment>
 
