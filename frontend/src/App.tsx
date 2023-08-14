@@ -5,19 +5,14 @@ import './index.css'
 import PlanListContainer from "./PlanListContainer.tsx";
 import {Plan} from "./Plan.ts";
 
-function App() {
+export default function App() {
     const[planInput, setPlanInput] = useState("");
     const[isHidden, setIsHidden] = useState(true);
     const[planList, setPlanList] = useState<Plan[]>([]);
     const[text, setText] = useState("");
-    const[planSearch, setPlanSearch] = useState("");
 
     function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
         setPlanInput(event.target.value);
-    }
-
-    function handleChangeSearch(event: ChangeEvent<HTMLInputElement>) {
-        setPlanSearch(event.target.value);
     }
 
     function handleSubmit(event: ChangeEvent<HTMLFormElement>)  {
@@ -39,11 +34,6 @@ function App() {
         setPlanInput("");
     }
 
-    function handleSearch(event: ChangeEvent<HTMLFormElement>)  {
-        event.preventDefault();
-        getPlan(planSearch);
-    }
-
     function getPlans() {
         axios.get('/api/plan')
             .then(function (response) {
@@ -54,17 +44,6 @@ function App() {
             })
             .catch(function (error) {
                 console.log(error);
-            });
-    }
-
-    function getPlan(id: string) {
-        axios.get('/api/plan/' + id)
-            .then(function (response) {
-                if(response.status === 200){
-                console.log(response.data.name)}
-            })
-            .catch(function () {
-                console.log("plan not found");
             });
     }
 
@@ -86,7 +65,6 @@ function App() {
         }
     }
 
-
     useEffect(() => {
         getPlans()
     }, []);
@@ -104,13 +82,7 @@ function App() {
           {text}
       </div>
         <PlanListContainer plans={planList} editName={editName}/>
-        <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>new plan </button>
-        <form onSubmit={handleSearch}>
-            <input type="text" value={planSearch} onChange={handleChangeSearch}/><br></br>
-            <button id="find-plan">find plan</button>
-        </form>
-
-        <p></p>
+        <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>new plan</button>
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
             <form onSubmit={handleSubmit}>
                 <label>name of plan </label>
@@ -123,4 +95,3 @@ function App() {
   )
 }
 
-export default App
