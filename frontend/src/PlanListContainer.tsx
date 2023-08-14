@@ -2,13 +2,9 @@ import './PlanListContainer.css';
 import PlanCard from "./PlanCard";
 import {Plan} from "./Plan.ts";
 
-
 type PlanListProps = {
     plans: Plan[];
-
 }
-
-
 
 export default function PlanListContainer(props: PlanListProps) {
 

@@ -68,16 +68,6 @@ function App() {
             });
     }
 
-    function editPlan(id: string) {
-        axios.put('/api/plan/' + id)
-            .then(function (response) {
-                console.log(response.data.name)
-            })
-            .catch(function () {
-                console.log("plan not found");
-            });
-    }
-
     useEffect(() => {
         getPlans()
     }, []);
