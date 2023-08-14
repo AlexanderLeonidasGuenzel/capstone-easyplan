@@ -17,11 +17,9 @@ export default function PlanCard(props: PlanCardProps) {
     }
 
     function saveName() {
-        console.log(nameInput);
-    }
-
-    function editPlan(id: string) {
-        axios.put('/api/plan/' + id)
+        axios.put('/api/plan/' + props.id, {
+            name: nameInput
+        })
             .then(function (response) {
                 console.log(response.data.name)
             })
