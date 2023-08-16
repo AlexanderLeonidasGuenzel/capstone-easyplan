@@ -1,9 +1,10 @@
 .card{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     margin: 10px 0 auto;
-    padding: 2rem;
+    padding: 5px;
     width: 100%;
     max-width: 500px;
     background-color: #fff;
@@ -11,5 +12,64 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     box-sizing: border-box;
     text-align: left;
-    color: #4d6896;
+    color: #061431;
+    color: #d00474;
+}
+
+.btn-box-sb{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 120px;
+    box-sizing: border-box;
+}
+
+button{
+    height: fit-content;
+    padding: 6px 12px;
+    margin: 0;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+#btn-edit{
+    background-color: #325780;
+}
+
+#btn-back{
+    background-color: #f66d41;
+}
+
+#btn-save{
+    background-color: #04b989;
+}
+
+p{
+    background-color: #ffffff;
+    padding: 6px 12px;
+    margin: 0;
+    width: 150px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #325780;
+}
+
+input{
+    background-color: #ffffff;
+    padding: 6px 12px;
+    margin: 0;
+    width: 150px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #325780;
+}
+
+input:focus{
+    outline: none;
+    background-color: #d3e3f8;
+    border-color: #011e77;
 }

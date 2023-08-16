@@ -38,7 +38,7 @@ export default function PlanCard(props: PlanCardProps) {
                     ? (<button id="btn-edit" onClick={() => setPTag(false)}>edit</button>)
                     :
                     (
-                        <div>
+                        <div className="btn-box-sb">
                         <button id="btn-back" onClick={handleBack}>back</button>
                         <button id="btn-save" onClick={handleSave}>save</button>
                         </div>
