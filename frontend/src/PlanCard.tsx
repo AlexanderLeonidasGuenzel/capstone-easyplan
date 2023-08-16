@@ -30,7 +30,7 @@ export default function PlanCard(props: PlanCardProps) {
             <Fragment>
                 {isPTag
                     ? (<p>{props.name}</p>)
-                    : (<input type="text" placeholder={"new name"} value={nameInput} onChange={handleInputChange}/>)
+                    : (<input type="text" placeholder={props.name} value={nameInput} onChange={handleInputChange}/>)
                 }
             </Fragment>
             <Fragment>
