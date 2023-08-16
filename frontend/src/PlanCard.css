@@ -13,7 +13,6 @@
     box-sizing: border-box;
     text-align: left;
     color: #061431;
-    color: #d00474;
 }
 
 .btn-box-sb{
@@ -31,11 +30,10 @@ button{
     margin: 0;
     border: none;
     color: #fff;
-    font-weight: bold;
 }
 
 #btn-edit{
-    background-color: #325780;
+    background-color: #4274a9;
 }
 
 #btn-back{
@@ -54,7 +52,7 @@ p{
     border-radius: 8px;
     border-style: solid;
     border-width: 1px;
-    border-color: #325780;
+    border-color: rgba(139, 194, 252, 0.78);
 }
 
 input{
@@ -64,12 +62,12 @@ input{
     width: 150px;
     border-radius: 8px;
     border-style: solid;
-    border-width: 1px;
-    border-color: #325780;
+    border-width: 2px;
+    border-color: #8BC2FCC6;
+    line-height: 24px;
 }
 
 input:focus{
     outline: none;
-    background-color: #d3e3f8;
-    border-color: #011e77;
+    background-color: #e4f0fc;
 }
