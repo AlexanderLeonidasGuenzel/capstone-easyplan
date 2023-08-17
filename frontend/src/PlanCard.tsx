@@ -1,13 +1,50 @@
 import  './PlanCard.css'
+import {ChangeEvent, Fragment, useState} from "react";
 
 export type PlanCardProps = {
     id: string,
     name: string,
+    editName: (id: string, nameInput: string, setNameInput: (input: string) => void, setPTag: (value: boolean) => void) => void
 }
+
 export default function PlanCard(props: PlanCardProps) {
+
+    const [isPTag, setPTag] = useState(true);
+    const [nameInput, setNameInput] = useState("");
+
+    function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+        setNameInput(event.target.value);
+    }
+
+    function handleBack() {
+        setPTag(true);
+        setNameInput("")
+    }
+
+    function handleSave() {
+        props.editName(props.id, nameInput, setNameInput, setPTag);
+    }
+
     return (
         <div className="card">
-            <h3>{props.name}</h3>
+            <Fragment>
+                {isPTag
+                    ? (<p>{props.name}</p>)
+                    : (<input type="text" placeholder={props.name} value={nameInput} onChange={handleInputChange}/>)
+                }
+            </Fragment>
+            <Fragment>
+                {isPTag
+                    ? (<button id="btn-edit" onClick={() => setPTag(false)}>edit</button>)
+                    :
+                    (
+                        <div className="btn-box-sb">
+                        <button id="btn-back" onClick={handleBack}>back</button>
+                        <button id="btn-save" onClick={handleSave}>save</button>
+                        </div>
+                    )
+                }
+            </Fragment>
         </div>
     )
 }

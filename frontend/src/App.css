@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  width: 400px;
 }
 
 body {
@@ -76,5 +77,11 @@ body {
   font-weight: bold;
   font-size: 16px;
   cursor: pointer;
+}
+
+#text-no-plans{
+  margin: 20px 0;
+  font-size: 16px;
+  color: #325780;
 }
 

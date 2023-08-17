@@ -2,9 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
+    padding: 5px;
     width: 100%;
-    background-color: #b9dbfa;
+    background-color: #e7f4ff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     box-sizing: border-box;

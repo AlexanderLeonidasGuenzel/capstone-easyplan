@@ -20,4 +20,14 @@ public class PlanController {
     public List<Plan> getAllPlans() {
         return planService.getAllPlans();
     }
+
+    @GetMapping("{id}")
+    public Plan getPlanById(@PathVariable String id) {
+        return planService.getPlanById(id);
+    }
+
+    @PutMapping("{id}")
+    public void editPlan(@PathVariable String id, @RequestBody PlanData planData) {
+        planService.editPlan(id, planData);
+    }
 }
