@@ -65,6 +65,16 @@ export default function App() {
         }
     }
 
+    function deletePlan(id: string) {
+        axios.delete('/api/plan/' + id)
+            .then(() => {
+                getPlans();
+            })
+            .catch(function () {
+                console.log("plan not found");
+            });
+    }
+
     useEffect(() => {
         getPlans()
     }, []);
@@ -81,7 +91,7 @@ export default function App() {
       <div id="text-no-plans">
           {text}
       </div>
-        <PlanListContainer plans={planList} editName={editName}/>
+        <PlanListContainer plans={planList} editName={editName} deletePlan={deletePlan}/>
         <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>new plan</button>
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
             <form onSubmit={handleSubmit}>
