@@ -67,7 +67,6 @@ class PlanControllerIntegrationTest {
     void testEditPlan() throws Exception {
 
         String planId = "1";
-        PlanData planData = new PlanData("Test Plan");
         Mockito.doNothing().when(planService).editPlan(Mockito.eq(planId), Mockito.any(PlanData.class));
 
         String jsonRequest = "{\"name\": \"Test Plan\"}";
@@ -75,5 +74,17 @@ class PlanControllerIntegrationTest {
                         .contentType("application/json")
                         .content(jsonRequest))
                 .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    void testDeletePlan() throws Exception {
+
+        String planId = "1";
+        Mockito.doNothing().when(planService).deletePlan(planId);
+
+        mockMvc.perform(MockMvcRequestBuilders.delete("/api/plan/{id}", planId))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+
+        Mockito.verify(planService).deletePlan(planId);
     }
 }

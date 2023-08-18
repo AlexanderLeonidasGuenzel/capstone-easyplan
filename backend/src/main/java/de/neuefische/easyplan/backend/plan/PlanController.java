@@ -30,4 +30,9 @@ public class PlanController {
     public void editPlan(@PathVariable String id, @RequestBody PlanData planData) {
         planService.editPlan(id, planData);
     }
+
+    @DeleteMapping("{id}")
+    public void deletePlan(@PathVariable String id) {
+        planService.deletePlan(id);
+    }
 }

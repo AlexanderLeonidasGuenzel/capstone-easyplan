@@ -5,6 +5,7 @@ export type PlanCardProps = {
     id: string,
     name: string,
     editName: (id: string, nameInput: string, setNameInput: (input: string) => void, setPTag: (value: boolean) => void) => void
+    deletePlan: (id: string) => void
 }
 
 export default function PlanCard(props: PlanCardProps) {
@@ -25,6 +26,10 @@ export default function PlanCard(props: PlanCardProps) {
         props.editName(props.id, nameInput, setNameInput, setPTag);
     }
 
+    function handleDelete() {
+        props.deletePlan(props.id);
+    }
+
     return (
         <div className="card">
             <Fragment>
@@ -35,10 +40,13 @@ export default function PlanCard(props: PlanCardProps) {
             </Fragment>
             <Fragment>
                 {isPTag
-                    ? (<button id="btn-edit" onClick={() => setPTag(false)}>edit</button>)
+                    ? (<div className="btn-box">
+                        <button id="btn-edit" onClick={() => setPTag(false)}>edit</button>
+                        <button id="btn-delete" onClick={handleDelete}>delete</button>
+                        </div>)
                     :
                     (
-                        <div className="btn-box-sb">
+                        <div className="btn-box">
                         <button id="btn-back" onClick={handleBack}>back</button>
                         <button id="btn-save" onClick={handleSave}>save</button>
                         </div>

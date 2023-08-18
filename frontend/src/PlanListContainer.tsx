@@ -6,6 +6,7 @@ import {useEffect, useState} from "react";
 type PlanListProps = {
     plans: Plan[];
     editName: (id: string, nameInput: string, setNameInput: (input: string) => void, setPTag: (value: boolean) => void) => void
+    deletePlan: (id: string) => void
 }
 
 export default function PlanListContainer(props: PlanListProps) {
@@ -23,7 +24,7 @@ export default function PlanListContainer(props: PlanListProps) {
                 : (<div className="container">
                         {
                             props.plans.map(({id, name}) => (
-                                <PlanCard key={id} id={id} name={name} editName={props.editName}/>
+                                <PlanCard key={id} id={id} name={name} editName={props.editName} deletePlan={props.deletePlan}/>
                             ))
                         }
                     </div>)

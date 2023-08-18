@@ -1,18 +1,21 @@
 package de.neuefische.easyplan.backend.plan;
-;
+
 import de.neuefische.easyplan.backend.utils.IDGenerator;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.Mockito.*;
 import org.springframework.test.annotation.DirtiesContext;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.*;
 
 
 @SpringBootTest
@@ -89,5 +92,53 @@ class PlanServiceIntegrationTest {
         assertEquals("example-name", retrievedPlan.getName());
 
         verify(planRepository, times(1)).findById(id);
+    }
+
+    @Test
+    @DirtiesContext
+    void testEditPlan() {
+
+        String id = "exampleId";
+        PlanData planData = new PlanData();
+        planData.setName("New Plan Name");
+
+        Plan existingPlan = new Plan();
+        existingPlan.setId(id);
+        existingPlan.setName("Old Plan Name");
+
+        when(planRepository.findById(id)).thenReturn(Optional.of(existingPlan));
+
+        planService.editPlan(id, planData);
+
+        assertEquals(planData.getName(), existingPlan.getName());
+
+        verify(planRepository, times(1)).findById(id);
+        verify(planRepository, times(1)).save(existingPlan);
+    }
+
+    @Test
+    @DirtiesContext
+    void givenPlanNotEqualsExpectedPlanAfterDelete() {
+
+        //GIVEN
+        Plan plan1 = new Plan("1", "planName1");
+        Plan plan2 = new Plan("2", "planName2");
+        Plan plan3 = new Plan("3", "planName3");
+        List<Plan> givenPlan = List.of(plan1, plan2, plan3);
+        List<Plan> expectedListAfterDelete = List.of(plan2, plan3);
+
+        //WHEN
+        when(planRepository.findAll()).thenReturn(expectedListAfterDelete);
+
+        //THEN
+        planService.deletePlan("1");
+
+        List<Plan> actualListAfterDelete = planService.getAllPlans();
+
+        Assertions.assertNotEquals(givenPlan, actualListAfterDelete);
+        Assertions.assertEquals(expectedListAfterDelete, actualListAfterDelete);
+
+        verify(planRepository, times(1)).findAll();
+        verify(planRepository, times(1)).deleteById("1");
     }
 }
