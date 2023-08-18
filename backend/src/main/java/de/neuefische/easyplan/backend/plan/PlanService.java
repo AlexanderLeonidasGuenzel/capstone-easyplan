@@ -32,4 +32,8 @@ public class PlanService {
         plan.setName(planData.getName());
         planRepository.save(plan);
     }
+
+    public void deletePlan(String id) {
+        planRepository.deleteById(id);
+    }
 }
