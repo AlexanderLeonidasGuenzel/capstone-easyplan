@@ -86,8 +86,7 @@ export default function App() {
 
   return (
     <div id="app-content">
-      <h1>Welcome</h1>
-      <h2>working plans</h2>
+      <h2>Your work schedules</h2>
       <div id="text-no-plans">
           {text}
       </div>
@@ -95,8 +94,7 @@ export default function App() {
         <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>new plan</button>
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
             <form onSubmit={handleSubmit}>
-                <label>name of plan </label>
-                <input type="text" placeholder={"e.g. week-1"} value={planInput} onChange={handleInputChange}/>
+                <input type="text" placeholder={"name of plan"} value={planInput} onChange={handleInputChange}/>
                 <button id="button-add">add</button>
             </form>
             <button id="button-back" onClick={toggleHidden}>back</button>

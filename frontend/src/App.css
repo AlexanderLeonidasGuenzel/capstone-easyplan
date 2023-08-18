@@ -1,13 +1,22 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
-  width: 400px;
+  width: 100%;
 }
 
-body {
-  background-color: #d8ebfd;
+#app-content {
+  /*background-color: #a42d87;*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+#app-content h2 {
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+  color: #325780;
 }
 
 #form-box{
@@ -15,10 +24,10 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 20px 0 auto;
-  padding: 2rem;
+  padding: 10px;
   width: 100%;
-  max-width: 500px;
-  background-color: #fff;
+  max-width: 400px;
+  background-color: #fcf0dc;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   box-sizing: border-box;
@@ -45,20 +54,15 @@ body {
   background-color: #04b989;
 }
 
-#form-box label{
-    text-align: left;
-    width: 100%;
-    margin-bottom: 5px;
-    font-size: 12px;
-  margin-left: 7px;
-}
-
 #form-box input{
-  width: 90%;
+  width: 100%;
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
   margin-bottom: 10px;
+  box-sizing: border-box;
+  color: #325780;
+  font-size: 1rem;
 }
 
 #form-box input:focus{
@@ -68,7 +72,7 @@ body {
 
 #btn-newPlan{
   margin-top: 20px;
-  width: 100%;
+  width: 100px;
   padding: 10px;
   border-radius: 10px;
   border: none;
