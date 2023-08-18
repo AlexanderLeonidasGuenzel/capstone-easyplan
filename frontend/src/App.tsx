@@ -85,7 +85,7 @@ export default function App() {
     }
 
   return (
-    <>
+    <div id="app-content">
       <h1>Welcome</h1>
       <h2>working plans</h2>
       <div id="text-no-plans">
@@ -101,7 +101,7 @@ export default function App() {
             </form>
             <button id="button-back" onClick={toggleHidden}>back</button>
         </div>
-    </>
+    </div>
   )
 }
 
