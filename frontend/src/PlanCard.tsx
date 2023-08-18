@@ -35,10 +35,13 @@ export default function PlanCard(props: PlanCardProps) {
             </Fragment>
             <Fragment>
                 {isPTag
-                    ? (<button id="btn-edit" onClick={() => setPTag(false)}>edit</button>)
+                    ? (<div className="btn-box">
+                        <button id="btn-edit" onClick={() => setPTag(false)}>edit</button>
+                        <button id="btn-delete" onClick={() => alert("deleted")}>delete</button>
+                        </div>)
                     :
                     (
-                        <div className="btn-box-sb">
+                        <div className="btn-box">
                         <button id="btn-back" onClick={handleBack}>back</button>
                         <button id="btn-save" onClick={handleSave}>save</button>
                         </div>

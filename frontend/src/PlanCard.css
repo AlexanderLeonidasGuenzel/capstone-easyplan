@@ -15,12 +15,12 @@
     color: #0d2f6e;
 }
 
-.btn-box-sb{
+.btn-box{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    width: 120px;
+    width: 140px;
     box-sizing: border-box;
 }
 
@@ -36,12 +36,16 @@ button{
     background-color: #4274a9;
 }
 
+#btn-delete{
+    background-color: #c90835;
+}
+
 #btn-back{
-    background-color: #f66d41;
+    background-color: #f68641;
 }
 
 #btn-save{
-    background-color: #04b989;
+    background-color: #04b99e;
 }
 
 p{
