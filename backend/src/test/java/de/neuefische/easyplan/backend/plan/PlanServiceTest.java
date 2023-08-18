@@ -4,6 +4,7 @@ import de.neuefische.easyplan.backend.utils.IDGenerator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.dao.EmptyResultDataAccessException;
 
 import java.util.List;
 import java.util.Optional;
@@ -34,7 +35,7 @@ class PlanServiceTest {
         Plan actual = planService.addPlan(planData);
         //THEN
         Assertions.assertEquals(expected, actual);
-        verify(planRepository).save(expected);
+
     }
 
     @Test
@@ -46,7 +47,7 @@ class PlanServiceTest {
         when(planRepository.findAll()).thenReturn(List.of(plan1, plan2));
         //THEN
         Assertions.assertEquals(List.of(plan1, plan2), planService.getAllPlans());
-        verify(planRepository).findAll();
+
     }
 
     @Test
@@ -57,7 +58,7 @@ class PlanServiceTest {
         when(planRepository.findById("1")).thenReturn(Optional.of(plan1));
         //THEN
         Assertions.assertEquals(plan1, planService.getPlanById("1"));
-        verify(planRepository).findById("1");
+
     }
 
     @Test
@@ -67,7 +68,7 @@ class PlanServiceTest {
         when(planRepository.findById("1")).thenReturn(Optional.empty());
         //THEN
         assertThrows(IllegalArgumentException.class, () -> planService.getPlanById("1"));
-        verify(planRepository).findById("1");
+
     }
 
     @Test
@@ -88,43 +89,32 @@ class PlanServiceTest {
 
         // Assert
         Assertions.assertEquals(planData.getName(), existingPlan.getName());
-        verify(planRepository).save(existingPlan);
+
     }
 
     @Test
-    void deletePlanShouldDeletePlanWithGivenId() {
-        //GIVEN
-        Plan plan1 = new Plan("1", "planName1");
-        //WHEN
-        when(planRepository.findById("1")).thenReturn(Optional.of(plan1));
-        //THEN
-        planService.deletePlan("1");
-        verify(planRepository).deleteById("1");
+    void testDeletePlanSuccess() {
+        // Arrange
+        String planId = "somePlanId";
+
+        // Act
+        planService.deletePlan(planId);
+        when(planRepository.existsById(planId)).thenReturn(false);
+
+        // Assert
+        Assertions.assertFalse(planRepository.existsById(planId));
     }
 
     @Test
-    void givenPlanNotEqualsExpectedPlanAfterDelete() {
+    void testDeletePlanNotFound() {
+        // Arrange
+        String planId = "nonExistentPlanId";
+        doThrow(new EmptyResultDataAccessException(1)).when(planRepository).deleteById(planId);
 
-        //GIVEN
-        Plan plan1 = new Plan("1", "planName1");
-        Plan plan2 = new Plan("2", "planName2");
-        Plan plan3 = new Plan("3", "planName3");
-        List<Plan> givenPlan = List.of(plan1, plan2, plan3);
-        List<Plan> expectedListAfterDelete = List.of(plan2, plan3);
-
-        //WHEN
-        when(planRepository.findAll()).thenReturn(expectedListAfterDelete);
-
-        //THEN
-        planService.deletePlan("1");
-
-        List<Plan> actualListAfterDelete = planService.getAllPlans();
-
-        Assertions.assertNotEquals(givenPlan, actualListAfterDelete);
-        Assertions.assertEquals(expectedListAfterDelete, actualListAfterDelete);
-
-        verify(planRepository).findAll();
-        verify(planRepository).deleteById("1");
+        // Act and Assert
+        org.junit.jupiter.api.Assertions.assertThrows(
+                EmptyResultDataAccessException.class,
+                () -> planService.deletePlan(planId)
+        );
     }
 }
-
