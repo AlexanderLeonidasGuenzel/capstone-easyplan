@@ -67,7 +67,6 @@ class PlanControllerIntegrationTest {
     void testEditPlan() throws Exception {
 
         String planId = "1";
-        PlanData planData = new PlanData("Test Plan");
         Mockito.doNothing().when(planService).editPlan(Mockito.eq(planId), Mockito.any(PlanData.class));
 
         String jsonRequest = "{\"name\": \"Test Plan\"}";
