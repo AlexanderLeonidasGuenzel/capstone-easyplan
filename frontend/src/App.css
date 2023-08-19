@@ -2,6 +2,9 @@
   margin: 0 auto;
   text-align: center;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  /*height: 100vh;*/
 }
 
 #app-content {
@@ -9,6 +12,8 @@
   flex-direction: column;
   align-items: center;
   padding: 10px;
+  flex-grow: 2;
+  /*overflow-y: scroll;*/
 }
 
 #app-content h2 {
