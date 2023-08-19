@@ -6,10 +6,10 @@ import PlanListContainer from "./PlanListContainer.tsx";
 import {Plan} from "./Plan.ts";
 
 export default function App() {
-    const[planInput, setPlanInput] = useState("");
-    const[isHidden, setIsHidden] = useState(true);
+    const[planInput, setPlanInput] = useState<string>("");
+    const[isHidden, setIsHidden] = useState<boolean>(true);
     const[planList, setPlanList] = useState<Plan[]>([]);
-    const[text, setText] = useState("");
+    const[text, setText] = useState<string>("");
 
     function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
         setPlanInput(event.target.value);
@@ -85,23 +85,22 @@ export default function App() {
     }
 
   return (
-    <>
-      <h1>Welcome</h1>
-      <h2>working plans</h2>
-      <div id="text-no-plans">
-          {text}
+    <div id="app-content">
+      <h2>Your work schedules</h2>
+      <div id="text-no-plans" style={text === "" ? {display:"none"} : {display:"block"}}>
+          <p>{text}</p>
       </div>
-        <PlanListContainer plans={planList} editName={editName} deletePlan={deletePlan}/>
-        <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>new plan</button>
+        <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>New plan</button>
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
             <form onSubmit={handleSubmit}>
-                <label>name of plan </label>
-                <input type="text" placeholder={"e.g. week-1"} value={planInput} onChange={handleInputChange}/>
-                <button id="button-add">add</button>
+                <input type="text" placeholder={"name of plan"} value={planInput} onChange={handleInputChange}/>
+                <div id="btn-box">
+                    <button id="button-add">Add</button>
+                    <button id="button-back" onClick={toggleHidden} type={"button"}>Back</button>
+                </div>
             </form>
-            <button id="button-back" onClick={toggleHidden}>back</button>
         </div>
-    </>
+        <PlanListContainer plans={planList} editName={editName} deletePlan={deletePlan}/>
+    </div>
   )
 }
-

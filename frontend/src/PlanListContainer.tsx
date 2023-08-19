@@ -30,8 +30,5 @@ export default function PlanListContainer(props: PlanListProps) {
                     </div>)
             }
         </>
-
-
-
     )
 }

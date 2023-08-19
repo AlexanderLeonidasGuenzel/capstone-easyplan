@@ -41,14 +41,14 @@ export default function PlanCard(props: PlanCardProps) {
             <Fragment>
                 {isPTag
                     ? (<div className="btn-box">
-                        <button id="btn-edit" onClick={() => setPTag(false)}>edit</button>
-                        <button id="btn-delete" onClick={handleDelete}>delete</button>
+                        <button id="btn-edit" onClick={() => setPTag(false)}>Edit</button>
+                        <button id="btn-delete" onClick={handleDelete}>Delete</button>
                         </div>)
                     :
                     (
                         <div className="btn-box">
-                        <button id="btn-back" onClick={handleBack}>back</button>
-                        <button id="btn-save" onClick={handleSave}>save</button>
+                        <button id="btn-back" onClick={handleBack}>Back</button>
+                        <button id="btn-save" onClick={handleSave}>Save</button>
                         </div>
                     )
                 }

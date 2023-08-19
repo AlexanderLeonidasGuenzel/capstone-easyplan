@@ -1,23 +1,33 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
-  width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /*height: 100vh;*/
 }
 
-body {
-  background-color: #d8ebfd;
-}
-
-#form-box{
+#app-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0 auto;
-  padding: 2rem;
+  padding: 10px;
+  flex-grow: 2;
+  /*overflow-y: scroll;*/
+}
+
+#app-content h2 {
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+  color: #325780;
+}
+
+#form-box{
+  margin: 20px 0;
+  padding: 10px;
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -26,15 +36,22 @@ body {
 }
 
 #form-box button{
-  margin-top: 20px;
-  width: 100%;
+  margin-top: 10px;
+  width: 48%;
   padding: 10px;
   border-radius: 8px;
-  border: none;
   color: #fff;
-  font-weight: bold;
-  font-size: 16px;
+  font-size: 1rem;
   cursor: pointer;
+}
+
+#btn-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #button-back{
@@ -45,20 +62,14 @@ body {
   background-color: #04b989;
 }
 
-#form-box label{
-    text-align: left;
-    width: 100%;
-    margin-bottom: 5px;
-    font-size: 12px;
-  margin-left: 7px;
-}
-
 #form-box input{
-  width: 90%;
+  width: 100%;
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  margin-bottom: 10px;
+  box-sizing: border-box;
+  color: #325780;
+  font-size: 1rem;
 }
 
 #form-box input:focus{
@@ -67,8 +78,8 @@ body {
 }
 
 #btn-newPlan{
-  margin-top: 20px;
-  width: 100%;
+  margin: 15px 0;
+  width: 100px;
   padding: 10px;
   border-radius: 10px;
   border: none;
@@ -80,8 +91,17 @@ body {
 }
 
 #text-no-plans{
-  margin: 20px 0;
+  margin: 10px 0;
   font-size: 16px;
   color: #325780;
 }
 
+#text-no-plans p{
+  background-color: #fdebf2;
+  padding: 7px 10px;
+  margin: 0;
+  width:300px;
+  border: 2px solid #f83182;
+  color: #cc133e;
+  font-size: 1.25rem;
+}

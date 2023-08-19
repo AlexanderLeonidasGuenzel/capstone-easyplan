@@ -3,13 +3,13 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 10px 0 auto;
-    padding: 5px;
+    margin:  0.25rem 0;
+    padding: 0.25rem;
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    /*box-shadow: 0 0 10px rgba(0,0,0,0.1);*/
     box-sizing: border-box;
     text-align: left;
     color: #0d2f6e;
@@ -48,7 +48,7 @@ button{
     background-color: #04b99e;
 }
 
-p{
+.card p{
     background-color: #ffffff;
     padding: 6px 12px;
     margin: 0;
