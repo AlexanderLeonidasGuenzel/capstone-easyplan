@@ -90,7 +90,7 @@ export default function App() {
       <div id="text-no-plans" style={text === "" ? {display:"none"} : {display:"block"}}>
           <p>{text}</p>
       </div>
-        <PlanListContainer plans={planList} editName={editName} deletePlan={deletePlan}/>
+
         <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>new plan</button>
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
             <form onSubmit={handleSubmit}>
@@ -99,6 +99,7 @@ export default function App() {
                 <button id="button-back" onClick={toggleHidden} type={"button"}>back</button>
             </form>
         </div>
+        <PlanListContainer plans={planList} editName={editName} deletePlan={deletePlan}/>
     </div>
   )
 }
