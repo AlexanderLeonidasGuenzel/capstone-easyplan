@@ -90,13 +90,13 @@ export default function App() {
       <div id="text-no-plans" style={text === "" ? {display:"none"} : {display:"block"}}>
           <p>{text}</p>
       </div>
-        <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>new plan</button>
+        <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>New plan</button>
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder={"name of plan"} value={planInput} onChange={handleInputChange}/>
                 <div id="btn-box">
-                    <button id="button-add">add</button>
-                    <button id="button-back" onClick={toggleHidden} type={"button"}>back</button>
+                    <button id="button-add">Add</button>
+                    <button id="button-back" onClick={toggleHidden} type={"button"}>Back</button>
                 </div>
             </form>
         </div>
