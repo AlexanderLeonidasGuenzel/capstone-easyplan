@@ -4,6 +4,12 @@
   width: 100%;
   position: fixed;
   bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .footer p{
@@ -11,6 +17,11 @@
   padding: 1rem;
   text-align: center;
   color: #fff;
+  font-size: 1rem;
+}
+
+.orange{
+  color: #fc7f36;
 }
 
 

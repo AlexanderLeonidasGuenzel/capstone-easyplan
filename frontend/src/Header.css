@@ -1,13 +1,26 @@
 .header{
   background-color: #3384d2;
-  height: 90px;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 5px 10px 5px;
+  font-size: 0.9rem;
 }
 
 .header h1{
   margin: 0;
-  padding: 1rem;
+  padding: 0;
   text-align: center;
   color: #fff;
+  align-self: center;
+}
+
+.header h3{
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  align-self: flex-end;
 }
 
 
