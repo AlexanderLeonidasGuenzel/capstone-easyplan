@@ -23,7 +23,6 @@
   margin: 20px 0;
   padding: 10px;
   width: 100%;
-  height: 200px;
   max-width: 400px;
   background-color: #fff;
   border-radius: 8px;
@@ -32,21 +31,23 @@
   text-align: left;
 }
 
-form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: space-around;
-}
-
 #form-box button{
-  /*margin-top: 20px;*/
-  width: 100%;
+  margin-top: 10px;
+  width: 48%;
   padding: 10px;
   border-radius: 8px;
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
+}
+
+#btn-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #button-back{
