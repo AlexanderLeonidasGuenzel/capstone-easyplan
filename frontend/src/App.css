@@ -11,7 +11,8 @@
   flex-direction: column;
   align-items: center;
   padding: 10px;
-  flex-grow: 2;
+  margin-top: 110px;
+  margin-bottom: 20px;
 }
 
 #app-content h2 {
