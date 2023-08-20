@@ -96,11 +96,12 @@
 }
 
 #text-no-plans p{
-  background-color: #fdebf2;
+  background-color: #fdf7eb;
   padding: 7px 10px;
   margin: 0;
   width:300px;
-  border: 2px solid #f83182;
-  color: #cc133e;
+  border: 2px solid #e79604;
+  border-radius: 5px;
+  color: #eca53a;
   font-size: 1.25rem;
 }
