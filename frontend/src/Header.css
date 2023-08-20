@@ -1,23 +1,24 @@
 .header{
   background-color: #4a82c5;
-  height: 100px;
+  height: 120px;
   width: 100%;
+  min-width: 300px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
-  padding: 5px;
   position: fixed;
+  padding: 5px 0;
 }
 
-.header-text{
+.header-text-box{
   display: flex;
   flex-direction: column;
   width: 300px;
-  height: 95%;
   background-color: rgba(106, 162, 231, 0.66);
-  border-radius: 10px;
   padding: 10px 15px;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
   box-sizing: border-box;
 }
 
@@ -30,13 +31,20 @@
   align-self: flex-start;
 }
 
-.header h3{
+.header p{
   margin: 0;
   padding: 0;
   color: #2c486e;
   align-self: flex-end;
   font-size: 1.4rem;
   font-family: "Roboto Light", sans-serif;
+}
+
+@media screen and (max-width: 400px) {
+  .header{
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 

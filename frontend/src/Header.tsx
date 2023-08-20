@@ -5,9 +5,9 @@ export default function Header() {
   return (
     <>
         <div className="header">
-            <div className="header-text">
+            <div className="header-text-box">
                 <h1>EasyPlan</h1>
-                <h3>Smart scheduling</h3>
+                <p>Smart scheduling</p>
             </div>
         </div >
     </>

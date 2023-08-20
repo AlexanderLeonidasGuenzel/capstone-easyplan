@@ -11,9 +11,11 @@ export default function Footer() {
   return (
     <>
         <div className="footer">
-            <p><span className="orange">©{year}</span> {myName.toUpperCase()}
+            <div className="footer-box">
+                <p><span className="orange">©{year}</span> {myName.toUpperCase()}
                 <span className="orange">{line}{company.toUpperCase()}{line}</span>
                 {course.toUpperCase()}</p>
+            </div>
         </div >
     </>
   )
