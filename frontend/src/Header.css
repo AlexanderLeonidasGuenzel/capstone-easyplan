@@ -20,12 +20,15 @@
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
   box-sizing: border-box;
+  border: solid 1px rgba(191, 217, 252, 0.66);
+  border-left: none;
 }
 
 .header h1{
   margin: 0;
   padding: 0;
   color: #f1f2f6;
+  text-shadow: 2px 1px 3px #46659a;
   font-size: 2.6rem;
   z-index: 3;
   align-self: flex-start;
@@ -34,8 +37,8 @@
 .header p{
   margin: 0;
   padding: 0;
-  color: #2c486e;
-  align-self: flex-end;
+  color: #30517e;
+  align-self: center;
   font-size: 1.4rem;
   font-family: "Roboto Light", sans-serif;
 }
