@@ -6,15 +6,21 @@ export default function Footer() {
     const company = "Neue Fische GmbH"
     const year = new Date().getFullYear();
     const course = "Java Fullstack Bootcamp";
-    const line = " | ";
 
   return (
     <>
         <div className="footer">
             <div className="footer-box">
-                <p><span className="orange">©{year}</span> {myName.toUpperCase()}
-                <span className="orange">{line}{company.toUpperCase()}{line}</span>
-                {course.toUpperCase()}</p>
+                <p>
+                    <span className="orange"> ©{year} </span>
+                    <span className="yellow"> | </span>
+                    <span> {myName.toUpperCase()} </span>
+                    <span className="yellow"> | </span>
+                    <span className="new-line"><br></br></span>
+                    <span className="orange">{company.toUpperCase()}</span>
+                    <span className="yellow"> | </span>
+                    <span> {course.toUpperCase()} </span>
+                </p>
             </div>
         </div >
     </>

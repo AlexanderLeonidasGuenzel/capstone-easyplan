@@ -2,7 +2,6 @@
   background-color: #21466e;
   height: 100px;
   width: 100%;
-
   position: fixed;
   bottom: 0;
   z-index: 10;
@@ -10,27 +9,40 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-
+  font-size: 1rem;
+  box-sizing: border-box;
 }
-
-.footer-box {
-  /*width: 500px;*/
-  /*min-width: 300px;*/
-}
-
-
 
 .footer-box p{
   margin: 0;
   padding: 1rem;
   text-align: center;
   color: #fff;
-  font-size: 0.9rem;
+
 }
 
 .orange{
   color: #fc7f36;
 }
+
+.yellow{
+  color: #ffea00;
+  font-weight: bold;
+}
+
+.new-line{
+  display: none;
+}
+
+@media (max-width: 600px){
+  .footer{
+    font-size: 0.9rem;
+  }
+  .new-line{
+    display: inline;
+  }
+}
+
 
 
 

@@ -40,11 +40,5 @@
   font-family: "Roboto Light", sans-serif;
 }
 
-@media screen and (max-width: 400px) {
-  .header{
-    justify-content: center;
-    align-items: center;
-  }
-}
 
 
