@@ -3,7 +3,8 @@ import './Footer.css'
 export default function Footer() {
 
     const myName = "Alexander Leonidas Guenzel"
-    const company = "Neue Fische GmbH"
+    const company = "www.neuefische.de"
+    const companyLink = "https://www.neuefische.de/en";
     const year = new Date().getFullYear();
     const course = "Java Fullstack Bootcamp";
 
@@ -17,7 +18,7 @@ export default function Footer() {
                     <span> {myName.toUpperCase()} </span>
                     <span className="yellow"> | </span>
                     <span className="new-line"><br></br></span>
-                    <span className="orange">{company.toUpperCase()}</span>
+                    <a className="orange" href={companyLink}>{company.toUpperCase()}</a>
                     <span className="yellow"> | </span>
                     <span> {course.toUpperCase()} </span>
                 </p>

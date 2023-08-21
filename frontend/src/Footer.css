@@ -18,7 +18,10 @@
   padding: 1rem;
   text-align: center;
   color: #fff;
+}
 
+.footer-box p a{
+  text-decoration: none;
 }
 
 .orange{
