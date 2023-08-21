@@ -100,9 +100,7 @@ export default function App() {
   return (
     <div id="app-content">
       <h2>List of work schedules</h2>
-      <div id="text-no-plans" style={text === "" ? {display:"none"} : {display:"block"}}>
-          <p>{text}</p>
-      </div>
+      <div id="text-no-plans" style={text === "" ? {display:"none"} : {display:"block"}}><p>{text}</p></div>
         <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>New plan</button>
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
             <form onSubmit={handleSubmit}>
