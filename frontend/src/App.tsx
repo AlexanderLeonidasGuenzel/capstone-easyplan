@@ -4,6 +4,7 @@ import axios from "axios";
 import './index.css'
 import PlanListContainer from "./PlanListContainer.tsx";
 import {Plan} from "./Plan.ts";
+import Swal from 'sweetalert2'
 
 export default function App() {
     const[planInput, setPlanInput] = useState<string>("");
@@ -26,10 +27,18 @@ export default function App() {
                     console.log(error);
                 });
             setIsHidden(true);
-            alert("plan successfully added");
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: 'Your entry was saved!',
+            })
             setText("");
         }else {
-            alert("please enter a name for the plan")
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'You need to enter a name!',
+            })
         }
         setPlanInput("");
     }
@@ -61,7 +70,11 @@ export default function App() {
                     console.log("plan not found");
                 });
         } else {
-            alert("please enter a name for the plan");
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'You need to enter a name!',
+            })
         }
     }
 
@@ -86,10 +99,8 @@ export default function App() {
 
   return (
     <div id="app-content">
-      <h2>Your work schedules</h2>
-      <div id="text-no-plans" style={text === "" ? {display:"none"} : {display:"block"}}>
-          <p>{text}</p>
-      </div>
+      <h2>List of work schedules</h2>
+      <div id="text-no-plans" style={text === "" ? {display:"none"} : {display:"block"}}><p>{text}</p></div>
         <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>New plan</button>
         <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
             <form onSubmit={handleSubmit}>

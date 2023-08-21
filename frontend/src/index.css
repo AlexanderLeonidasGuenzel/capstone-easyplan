@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, Roboto, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -19,6 +19,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: #d8ebfd;
+  font-family: Roboto, sans-serif;
 }
 
 h1 {
