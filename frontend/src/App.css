@@ -97,13 +97,13 @@
 }
 
 #text-no-plans p{
-  background-color: #fdf7eb;
+  background-color: #fff6f8;
   padding: 7px 10px;
   margin: 0;
-  width:300px;
-  border: 2px solid #e79604;
+  width: 250px;
+  border: 2px solid #f60e6f;
   border-radius: 5px;
-  color: #eca53a;
+  color: #c50f56;
   font-size: 1.25rem;
 }
 
