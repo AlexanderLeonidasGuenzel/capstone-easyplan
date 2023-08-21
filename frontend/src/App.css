@@ -6,7 +6,7 @@
   flex-direction: column;
 }
 
-#app-content {
+.App {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +16,7 @@
   margin-bottom: 120px;
 }
 
-#app-content h2 {
+.App h2 {
   margin: 0;
   padding: 0;
   text-align: center;
@@ -24,100 +24,11 @@
   align-self: center;
 }
 
-#form-box{
-  margin: 20px 0;
-  padding: 10px;
-  width: 100%;
-  max-width: 400px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  box-sizing: border-box;
-  text-align: left;
-}
 
-#form-box button{
-  margin-top: 10px;
-  width: 48%;
-  padding: 10px;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-}
 
-#btn-box{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  box-sizing: border-box;
-}
 
-#button-back{
-  background-color: #f66d41;
-}
 
-#button-add{
-  background-color: #04b989;
-}
 
-#form-box input{
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  color: #325780;
-  font-size: 1rem;
-}
 
-#form-box input:focus{
-  outline: none;
-  border: 1px solid #325780;
-}
 
-#btn-newPlan{
-  margin: 15px 0;
-  width: 100px;
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  background-color: #1d568d;
-  color: #fff;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-}
 
-#text-no-plans{
-  margin: 10px 0;
-  font-size: 16px;
-  color: #325780;
-}
-
-#text-no-plans p{
-  background-color: #fff6f8;
-  padding: 7px 10px;
-  margin-top: 20px;
-  width: 250px;
-  border: 2px solid #f60e6f;
-  border-radius: 5px;
-  color: #c50f56;
-  font-size: 1.25rem;
-}
-
-@media (max-width: 600px){
-  #form-box{
-    margin: 20px 0;
-    padding: 10px;
-    width: 100%;
-    max-width: 320px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    box-sizing: border-box;
-    text-align: left;
-  }
-}

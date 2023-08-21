@@ -1,0 +1,16 @@
+#text-no-plans{
+    margin: 10px 0;
+    font-size: 16px;
+    color: #325780;
+}
+
+#text-no-plans p{
+    background-color: #fff6f8;
+    padding: 7px 10px;
+    margin-top: 20px;
+    width: 250px;
+    border: 2px solid #f60e6f;
+    border-radius: 5px;
+    color: #c50f56;
+    font-size: 1.25rem;
+}

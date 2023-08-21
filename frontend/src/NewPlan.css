@@ -1,0 +1,75 @@
+#btn-newPlan{
+    width: 100px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #1d568d;
+    color: #fff;
+}
+
+#form-box{
+    margin: 20px 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    text-align: left;
+}
+
+@media (max-width: 600px){
+    #form-box{
+        margin: 20px 0;
+        padding: 10px;
+        width: 100%;
+        max-width: 320px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        box-sizing: border-box;
+        text-align: left;
+    }
+}
+
+#button-back{
+    background-color: #f66d41;
+}
+
+#button-add{
+    background-color: #04b989;
+}
+
+#btn-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#form-box button{
+    margin-top: 10px;
+    width: 48%;
+    padding: 10px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#form-box input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    color: #325780;
+    font-size: 1rem;
+}
+
+#form-box input:focus{
+    outline: none;
+    border: 1px solid #325780;
+}

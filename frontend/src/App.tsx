@@ -2,9 +2,9 @@ import './App.css'
 import {ChangeEvent, useEffect, useState} from "react";
 import axios from "axios";
 import './index.css'
-import PlanListContainer from "./PlanListContainer.tsx";
 import {Plan} from "./Plan.ts";
 import Swal from 'sweetalert2'
+import ListContent from "./ListContent.tsx";
 
 export default function App() {
     const[planInput, setPlanInput] = useState<string>("");
@@ -98,20 +98,8 @@ export default function App() {
     }
 
   return (
-    <div id="app-content">
-      <h2>List of work schedules</h2>
-      <div id="text-no-plans" style={text === "" ? {display:"none"} : {display:"block"}}><p>{text}</p></div>
-        <button id="btn-newPlan" onClick={toggleHidden} style={!isHidden ? {display:"none"} : {display:"block"}}>New plan</button>
-        <div id="form-box" style={isHidden ? {display:"none"} : {display:"block"}}>
-            <form onSubmit={handleSubmit}>
-                <input type="text" placeholder={"name of plan"} value={planInput} onChange={handleInputChange}/>
-                <div id="btn-box">
-                    <button id="button-add">Add</button>
-                    <button id="button-back" onClick={toggleHidden} type={"button"}>Back</button>
-                </div>
-            </form>
-        </div>
-        <PlanListContainer plans={planList} editName={editName} deletePlan={deletePlan}/>
+    <div className="App">
+        <ListContent text={text} isHidden={isHidden} toggleHidden={toggleHidden} planInput={planInput} handleInputChange={handleInputChange} handleSubmit={handleSubmit} planList={planList} editName={editName} deletePlan={deletePlan}/>
     </div>
   )
 }
