@@ -1,6 +1,5 @@
 .footer{
   background-color: #1d568d;
-  height: 100px;
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -15,7 +14,7 @@
 
 .footer-box p{
   margin: 0;
-  padding: 1rem;
+  padding: 1.5rem;
   text-align: center;
   color: #fff;
 }
@@ -39,7 +38,8 @@
 
 @media (max-width: 600px){
   .footer{
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    height: 120px;
   }
   .new-line{
     display: inline;

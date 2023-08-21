@@ -3,7 +3,7 @@ import './Footer.css'
 export default function Footer() {
 
     const myName = "Alexander Leonidas Guenzel"
-    const company = "www.neuefische.de"
+    const company = "neuefische.de"
     const companyLink = "https://www.neuefische.de/en";
     const year = new Date().getFullYear();
     const course = "Java Fullstack Bootcamp";
