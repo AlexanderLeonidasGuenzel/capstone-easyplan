@@ -10,16 +10,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
-  margin-top: 110px;
-  margin-bottom: 20px;
+  padding: 30px;
+  margin-top: 140px;
+  margin-bottom: 100px;
 }
 
 #app-content h2 {
   margin: 0;
-  padding: 1rem;
+  padding: 0;
   text-align: center;
   color: #325780;
+  align-self: center;
 }
 
 #form-box{
@@ -104,4 +105,18 @@
   border-radius: 5px;
   color: #eca53a;
   font-size: 1.25rem;
+}
+
+@media (max-width: 600px){
+  #form-box{
+    margin: 20px 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 320px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    text-align: left;
+  }
 }

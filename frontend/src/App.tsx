@@ -99,7 +99,7 @@ export default function App() {
 
   return (
     <div id="app-content">
-      <h2>Your work schedules</h2>
+      <h2>List of work schedules</h2>
       <div id="text-no-plans" style={text === "" ? {display:"none"} : {display:"block"}}>
           <p>{text}</p>
       </div>
