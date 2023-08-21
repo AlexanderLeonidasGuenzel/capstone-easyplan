@@ -43,15 +43,16 @@
 @media (max-width: 600px){
   .header{
     background-color: #3384d2;
-    padding: 10px 40px;
-
+    padding: 30px 40px 15px 40px;
   }
+
   .header-text-box{
     display: flex;
     flex-direction: column;
     width: 100%;
     border: solid 1px rgba(190, 215, 252, 0.66);
     border-radius: 15px;
+
   }
 }
 
